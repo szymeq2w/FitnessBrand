@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/Reveal";
+
 const FAQS = [
   {
     q: "Czy to jest subskrypcja?",
@@ -25,14 +27,16 @@ export function Faq() {
   return (
     <section id="faq" className="border-t border-line bg-surface">
       <div className="mx-auto max-w-3xl px-6 py-20 md:py-28">
-        <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent-dark">
-          FAQ
-        </p>
-        <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
-          Najczęstsze pytania
-        </h2>
+        <Reveal>
+          <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent-dark">
+            FAQ
+          </p>
+          <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
+            Najczęstsze pytania
+          </h2>
+        </Reveal>
 
-        <div className="mt-10 divide-y divide-line rounded-2xl border border-line">
+        <Reveal delay={0.1} className="mt-10 divide-y divide-line rounded-2xl border border-line">
           {FAQS.map((item) => (
             <details key={item.q} className="group p-6 open:bg-surface-soft">
               <summary className="flex cursor-pointer list-none items-center justify-between font-medium marker:content-none">
@@ -44,7 +48,7 @@ export function Faq() {
               <p className="mt-3 text-sm text-ink-muted">{item.a}</p>
             </details>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

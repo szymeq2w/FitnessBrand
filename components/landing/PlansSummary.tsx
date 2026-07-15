@@ -1,3 +1,6 @@
+import { Reveal } from "@/components/motion/Reveal";
+import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
+
 const PLANS = [
   {
     tier: "Basic",
@@ -36,16 +39,18 @@ const PLANS = [
 export function PlansSummary() {
   return (
     <section id="plany" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-      <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent-dark">
-        Cennik
-      </p>
-      <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
-        Wybierz swój poziom wsparcia
-      </h2>
+      <Reveal>
+        <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent-dark">
+          Cennik
+        </p>
+        <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
+          Wybierz swój poziom wsparcia
+        </h2>
+      </Reveal>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
+      <StaggerGroup className="mt-12 grid gap-6 md:grid-cols-3">
         {PLANS.map((plan) => (
-          <div
+          <StaggerItem
             key={plan.tier}
             className={`flex flex-col rounded-3xl border p-8 ${
               plan.highlight
@@ -91,9 +96,9 @@ export function PlansSummary() {
             >
               Wybierz {plan.tier}
             </a>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerGroup>
       <p className="mt-6 text-center text-xs text-ink-muted">
         Pełne porównanie funkcji i płatność Stripe pojawią się w Etapie 4 i 5.
       </p>

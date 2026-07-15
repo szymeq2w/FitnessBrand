@@ -1,9 +1,11 @@
+import { Reveal } from "@/components/motion/Reveal";
+
 export function About() {
   return (
     <section id="o-mnie" className="border-t border-line bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[0.8fr_1.2fr] md:items-center md:py-28">
-        <div className="aspect-[4/5] w-full max-w-xs rounded-3xl bg-surface-soft border border-line" />
-        <div>
+        <Reveal className="aspect-[4/5] w-full max-w-xs rounded-3xl bg-surface-soft border border-line" />
+        <Reveal delay={0.15}>
           <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent-dark">
             O mnie
           </p>
@@ -35,7 +37,7 @@ export function About() {
               <div className="text-xs text-ink-muted">kwalifikacje</div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

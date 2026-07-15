@@ -1,3 +1,6 @@
+import { Reveal } from "@/components/motion/Reveal";
+import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
+
 const STEPS = [
   {
     n: "01",
@@ -24,24 +27,26 @@ const STEPS = [
 export function HowItWorks() {
   return (
     <section id="jak-to-dziala" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-      <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent-dark">
-        Proces
-      </p>
-      <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
-        Jak to działa
-      </h2>
+      <Reveal>
+        <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent-dark">
+          Proces
+        </p>
+        <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
+          Jak to działa
+        </h2>
+      </Reveal>
 
-      <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-line bg-line md:grid-cols-4">
+      <StaggerGroup className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-line bg-line md:grid-cols-4">
         {STEPS.map((step) => (
-          <div key={step.n} className="bg-surface p-7">
+          <StaggerItem key={step.n} className="bg-surface p-7">
             <span className="font-mono text-sm text-accent-dark">{step.n}</span>
             <h3 className="mt-3 font-display text-lg font-semibold">
               {step.title}
             </h3>
             <p className="mt-2 text-sm text-ink-muted">{step.body}</p>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerGroup>
     </section>
   );
 }
