@@ -1,0 +1,40 @@
+// Schemat bazy danych - fundament projektu (Etap 1)
+// Kolejne modele (plany treningowe, przepisy, progres) będą dodawane
+// w miarę realizacji kolejnych etapów (Etap 5-9), żeby nie tworzyć
+// na zapas struktur, których kształt może się jeszcze zmienić.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Role {
+  ADMIN
+  CLIENT
+}
+
+enum PlanTier {
+  BASIC
+  STANDARD
+  PREMIUM
+}
+
+// Podstawowy model użytkownika - rozbudowany w Etapie 6 (Auth.js/Supabase Auth)
+// i Etapie 7 (panel admina: lista klientów, status, ostatnia aktywność).
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String?
+  name          String?
+  role          Role      @default(CLIENT)
+  planTier      PlanTier?
+  planExpiresAt DateTime?
+  lastActiveAt  DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
