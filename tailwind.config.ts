@@ -8,7 +8,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Paleta pod jasny, modernistyczny landing (etap 2/3)
+        // Paleta landing page: jasne chłodne tło + granat + jeden akcent
+        ink: {
+          DEFAULT: "#10192B",
+          muted: "#5E6B7E",
+        },
+        surface: {
+          DEFAULT: "#FFFFFF",
+          soft: "#F7F8FA",
+        },
+        line: "#E4E8EE",
+        accent: {
+          DEFAULT: "#FF5A36",
+          soft: "#FFE8E0",
+          dark: "#E14620",
+        },
+        // Zachowane dla kompatybilności z Etapem 1
         brand: {
           50: "#f5f7fa",
           100: "#e9edf3",
@@ -21,6 +36,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
     },
   },

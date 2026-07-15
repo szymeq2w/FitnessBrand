@@ -1,19 +1,25 @@
+import { Header } from "@/components/landing/Header";
+import { Hero } from "@/components/landing/Hero";
+import { About } from "@/components/landing/About";
+import { HowItWorks } from "@/components/landing/HowItWorks";
+import { Testimonials } from "@/components/landing/Testimonials";
+import { PlansSummary } from "@/components/landing/PlansSummary";
+import { Faq } from "@/components/landing/Faq";
+import { Footer } from "@/components/landing/Footer";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-4 px-6 text-center">
-      <h1 className="text-3xl font-semibold">
-        Platforma Trenera Personalnego
-      </h1>
-      <p className="max-w-md text-brand-600">
-        Etap 1: fundament projektu działa. Landing page z pełną treścią
-        i animacjami pojawi się w Etapie 2 i 3.
-      </p>
-      <a
-        href="/api/health"
-        className="rounded-full bg-brand-900 px-5 py-2 text-sm text-white hover:bg-brand-700"
-      >
-        Sprawdź połączenie z bazą danych
-      </a>
-    </main>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <About />
+        <HowItWorks />
+        <Testimonials />
+        <PlansSummary />
+        <Faq />
+      </main>
+      <Footer />
+    </>
   );
 }
