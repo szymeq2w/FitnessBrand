@@ -10,7 +10,7 @@ export function Reveal({
   y = 16,
   once = true,
 }: {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   delay?: number;
   y?: number;
