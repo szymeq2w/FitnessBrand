@@ -1,40 +1,6 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { StaggerGroup, StaggerItem } from "@/components/motion/StaggerGroup";
-
-const PLANS = [
-  {
-    tier: "Basic",
-    price: "od [XXX] zł",
-    period: "/ okres",
-    tagline: "Plan samodzielny, bez bieżącego kontaktu ze mną.",
-    features: ["Gotowy plan treningowy", "Dostęp do bazy ćwiczeń", "Bez korekt w trakcie"],
-    highlight: false,
-  },
-  {
-    tier: "Standard",
-    price: "od [XXX] zł",
-    period: "/ okres",
-    tagline: "Spersonalizowany plan + comiesięczna korekta.",
-    features: [
-      "Plan ułożony indywidualnie",
-      "Korekta planu raz w miesiącu",
-      "Dostęp do biblioteki przepisów",
-    ],
-    highlight: true,
-  },
-  {
-    tier: "Premium",
-    price: "od [XXX] zł",
-    period: "/ okres",
-    tagline: "Pełny coaching 1:1 z cotygodniowym wsparciem.",
-    features: [
-      "Cotygodniowe sprawdzanie progresu",
-      "Bieżące komentowanie Twoich logów",
-      "Priorytetowy kontakt ze mną",
-    ],
-    highlight: false,
-  },
-] as const;
+import { PLANS } from "@/lib/plans";
 
 export function PlansSummary() {
   return (
@@ -51,7 +17,7 @@ export function PlansSummary() {
       <StaggerGroup className="mt-12 grid gap-6 md:grid-cols-3">
         {PLANS.map((plan) => (
           <StaggerItem
-            key={plan.tier}
+            key={plan.slug}
             className={`flex flex-col rounded-3xl border p-8 ${
               plan.highlight
                 ? "border-ink bg-ink text-surface"
@@ -73,11 +39,12 @@ export function PlansSummary() {
                   plan.highlight ? "text-surface/70" : "text-ink-muted"
                 }`}
               >
+                {" "}
                 {plan.period}
               </span>
             </div>
             <ul className="mt-6 flex-1 space-y-2 text-sm">
-              {plan.features.map((f) => (
+              {plan.features.slice(0, 3).map((f) => (
                 <li key={f} className="flex gap-2">
                   <span className={plan.highlight ? "text-accent" : "text-accent-dark"}>
                     +
@@ -87,7 +54,7 @@ export function PlansSummary() {
               ))}
             </ul>
             <a
-              href="#"
+              href={`/plany#${plan.slug}`}
               className={`mt-8 rounded-full px-5 py-3 text-center text-sm font-semibold transition-colors ${
                 plan.highlight
                   ? "bg-accent text-surface hover:bg-accent-dark"
@@ -100,7 +67,11 @@ export function PlansSummary() {
         ))}
       </StaggerGroup>
       <p className="mt-6 text-center text-xs text-ink-muted">
-        Pełne porównanie funkcji i płatność Stripe pojawią się w Etapie 4 i 5.
+        Pełne porównanie funkcji znajdziesz na{" "}
+        <a href="/plany" className="underline hover:text-ink">
+          stronie z planami
+        </a>
+        . Płatność Stripe pojawi się w Etapie 5.
       </p>
     </section>
   );

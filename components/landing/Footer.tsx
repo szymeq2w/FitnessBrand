@@ -17,10 +17,10 @@ export function Footer() {
               Nawigacja
             </p>
             <ul className="mt-3 space-y-2 text-sm">
-              <li><a href="#o-mnie" className="hover:text-accent">O mnie</a></li>
-              <li><a href="#jak-to-dziala" className="hover:text-accent">Jak to działa</a></li>
-              <li><a href="#plany" className="hover:text-accent">Plany</a></li>
-              <li><a href="#faq" className="hover:text-accent">FAQ</a></li>
+              <li><a href="/#o-mnie" className="hover:text-accent">O mnie</a></li>
+              <li><a href="/#jak-to-dziala" className="hover:text-accent">Jak to działa</a></li>
+              <li><a href="/plany" className="hover:text-accent">Plany</a></li>
+              <li><a href="/#faq" className="hover:text-accent">FAQ</a></li>
             </ul>
           </div>
 

@@ -46,12 +46,14 @@ export function StaggerGroup({
 export function StaggerItem({
   children,
   className = "",
+  id,
 }: {
   children: ReactNode;
   className?: string;
+  id?: string;
 }) {
   return (
-    <motion.div className={className} variants={item}>
+    <motion.div id={id} className={className} variants={item}>
       {children}
     </motion.div>
   );

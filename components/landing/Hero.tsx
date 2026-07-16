@@ -31,7 +31,7 @@ export function Hero() {
           <StaggerItem>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
-                href="#plany"
+                href="/plany"
                 className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-surface transition-colors hover:bg-accent-dark"
               >
                 Zobacz plany i cennik
