@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Karla, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin", "latin-ext"],
   variable: "--font-display",
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
 });
 
-const inter = Inter({
+const karla = Karla({
   subsets: ["latin", "latin-ext"],
   variable: "--font-sans",
 });
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${plexMono.variable} min-h-screen bg-surface-soft font-sans text-ink antialiased`}
+        className={`${bricolage.variable} ${karla.variable} ${plexMono.variable} min-h-screen bg-bg font-sans text-ink antialiased`}
       >
         {children}
       </body>

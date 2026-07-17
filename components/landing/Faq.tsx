@@ -25,27 +25,27 @@ const FAQS = [
 
 export function Faq() {
   return (
-    <section id="faq" className="border-t border-line bg-surface">
-      <div className="mx-auto max-w-3xl px-6 py-20 md:py-28">
+    <section id="faq" className="border-t border-ink/10">
+      <div className="mx-auto max-w-3xl px-6 py-20 md:py-32">
         <Reveal>
-          <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent-dark">
+          <p className="mb-3 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-accent-dark">
             FAQ
           </p>
-          <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
+          <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
             Najczęstsze pytania
           </h2>
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-10 divide-y divide-line rounded-2xl border border-line">
+        <Reveal delay={0.1} className="mt-10 divide-y divide-ink/10 border border-ink/15">
           {FAQS.map((item) => (
-            <details key={item.q} className="group p-6 open:bg-surface-soft">
+            <details key={item.q} className="group p-6 open:bg-ink/[0.03]">
               <summary className="flex cursor-pointer list-none items-center justify-between font-medium marker:content-none">
                 {item.q}
-                <span className="ml-4 shrink-0 text-ink-muted transition-transform group-open:rotate-45">
+                <span className="ml-4 shrink-0 font-mono text-ink/40 transition-transform group-open:rotate-45">
                   +
                 </span>
               </summary>
-              <p className="mt-3 text-sm text-ink-muted">{item.a}</p>
+              <p className="mt-3 text-sm text-ink/60">{item.a}</p>
             </details>
           ))}
         </Reveal>
